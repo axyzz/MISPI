@@ -6,6 +6,7 @@ codewords = ([0, 0, 0, 0], [1, 0, 1, 0], [0, 1, 1, 1], [1, 1, 0, 1])
 print('Кодовые слова: ', codewords)
 wrong = tuple(map(int, input('Введите не кодовое слово: ').split(' ')))
 
+# Создание смежного класса путем
 wrongwords = []
 for word in codewords:
     res = []
@@ -14,6 +15,8 @@ for word in codewords:
     wrongwords.append(res)
 
 leaders = []
+
+# поиск минимального числа едиинц в слове из смежного класса
 cnt = len(wrong)
 for word in wrongwords:
     temp = 0
@@ -21,6 +24,7 @@ for word in wrongwords:
         temp += elem
     if temp < cnt: cnt = temp
 
+# поиск лидеров с найденным выше числом единиц в слове
 for word in wrongwords:
     temp = 0
     for elem in word:
